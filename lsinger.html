@@ -1,73 +1,199 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Talent | Relier</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Relierは歌に特化した配信事務所です。歌に本気で取り組む配信者を募集しています。"
+  >
+
+  <title>Relier｜歌に特化した配信事務所</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <header class="site-header">
+    <nav aria-label="メインナビゲーション">
+      <ul>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#talent">TALENT</a></li>
+        <li><a href="#news-event">NEWS・EVENT</a></li>
+        <li><a href="#audition">AUDITION</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<header>
-  <nav>
-    <ul>
-      <li><a href="index.html">HOME</a></li>
-      <li><a hreシンガ＾alent.html">TALENT</a></li>
-      <li><a href="index.html#contact">CONTACT</a></li>
-    </ul>
-  </nav>
-</header>
+  <main>
+    <!-- メインビジュアル -->
+    <section class="hero" aria-labelledby="site-title">
+      <span class="hero-mark" aria-hidden="true">R</span>
 
-<section class="hero">
-  <h1>TALENT</h1>
-  <p>所属Lシンガー一覧</p>
-</section>
+      <h1 id="site-title">Relier</h1>
 
-<section class="fade">
-  <div class="talent-grid">
+      <span class="hero-label">
+        LIVE STREAMING AGENCY
+      </span>
 
-    <div class="talent-card">
-      <img src="Mii.jpg" alt="Mii">
-      <div class="talent-info">
-        <h3>Mii</h3>
-        <p>Lシンガー</p>
-        <p>このライバーの情報はこちら↴</p>
-        <p><a href="https://lit.link/miin8e" target="_blank">
-プロフィールを見る
-</a></p>
-<p>あいうえお </div>
-    </div>
-    
-    <div class="talent-card">
-      <img src="jun.jpg" alt="じゅん">
-      <div class="talent-info">
-        <h3>じゅん</h3>
-        <p>Lシンガー</p>
+      <p>歌で繋がる、想いを届ける。</p>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="content-section reveal">
+      <h2>ABOUT</h2>
+      <p>Relierは、歌に特化した配信事務所です。</p>
+    </section>
+
+    <!-- TALENT -->
+    <section id="talent" class="content-section reveal">
+      <h2>TALENT</h2>
+
+      <div class="card-container">
+        <a href="lsinger.html" class="card">
+          <h3>Lシンガー</h3>
+          <p>タップして一覧を見る</p>
+        </a>
+
+        <a href="kao.html" class="card">
+          <h3>ライブ配信</h3>
+          <p>タップして一覧を見る</p>
+        </a>
+
+        <a href="vtu.html" class="card">
+          <h3>VTuber</h3>
+          <p>タップして一覧を見る</p>
+        </a>
       </div>
-    </div>
+    </section>
 
-  </div>
-</section>
+    <!-- NEWS・EVENT -->
+    <section id="news-event" class="content-section reveal">
+      <h2>NEWS・EVENT</h2>
 
-<footer>
-  <p>© 2026 Relier</p>
-</footer>
+      <p>
+        新しく加入したメンバーやイベント予定をお知らせします。
+      </p>
 
-<script>
-const fades = document.querySelectorAll('.fade');
+      <article class="news-item">
+        <time datetime="2026-07-02">2026.07.02</time>
+        <p>Relier 事務所始動</p>
+      </article>
+    </section>
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
+    <!-- AUDITION -->
+    <section id="audition" class="content-section reveal">
+      <h2>AUDITION</h2>
+      <p>歌に本気で取り組む配信者を募集しています。</p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="content-section reveal">
+      <h2>CONTACT</h2>
+
+      <p>
+        お問い合わせは、公式LINEからお願いいたします。
+      </p>
+
+      <div class="social-links">
+        <!-- 公式LINE -->
+        <a
+          href="https://lin.ee/JazUjHW"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="line-link"
+          aria-label="Relier公式LINEを新しいタブで開く"
+        >
+          <img
+            src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png"
+            alt="LINEで友だち追加"
+            width="116"
+            height="36"
+          >
+        </a>
+
+        <!-- 公式X -->
+        <a
+          href="https://x.com/relier_7?s=11"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="x-link"
+          aria-label="Relier公式Xを新しいタブで開く"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              fill="currentColor"
+              d="M18.244 2.25h3.308l-7.227 8.26
+                 8.502 11.24H16.17l-5.214-6.817
+                 -5.967 6.817H1.68l7.73-8.835
+                 L1.254 2.25H8.08l4.713 6.231
+                 5.45-6.231Zm-1.161 17.52h1.833
+                 L7.084 4.126H5.117L17.083 19.77Z"
+            ></path>
+          </svg>
+
+          <span>公式X</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      <small>&copy; 2026 Relier.</small>
+    </p>
+  </footer>
+
+  <script>
+    /*
+     * JavaScriptが有効な場合だけ、
+     * CSSのフェードアニメーションを有効にします。
+     */
+    document.documentElement.classList.add("js-enabled");
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries, currentObserver) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              currentObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    } else {
+      /*
+       * 古いブラウザではアニメーションを使わず、
+       * 最初からすべて表示します。
+       */
+      revealElements.forEach((element) => {
+        element.classList.add("is-visible");
+      });
     }
-  });
-});
-
-fades.forEach(fade => {
-  observer.observe(fade);
-});
-</script>
-
+  </script>
 </body>
 </html>
