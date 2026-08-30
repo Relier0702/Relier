@@ -1,397 +1,34 @@
-/* =========================
-   基本設定
-========================= */
-
-:root {
-  --color-bg: #f8fbff;
-  --color-bg-soft: #eef6ff;
-  --color-white: #fff;
-  --color-text: #444;
-  --color-subtext: #777;
-  --color-accent: #78b5f5;
-  --color-border: #e5edf5;
-
-  --header-height: 70px;
-  --content-width: 1100px;
-
-  --shadow-card: 0 10px 30px rgba(40, 80, 120, 0.08);
-  --shadow-hover: 0 18px 45px rgba(40, 80, 120, 0.14);
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  padding-top: var(--header-height);
-  color: var(--color-text);
-  background: var(--color-bg);
-  font-family:
-    "Yu Gothic",
-    "Hiragino Kaku Gothic ProN",
-    "Meiryo",
-    sans-serif;
-  line-height: 1.8;
-}
-
-img,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-a {
-  -webkit-tap-highlight-color: transparent;
-}
-
-section[id] {
-  scroll-margin-top: calc(var(--header-height) + 20px);
-}
-
-/* =========================
-   ヘッダー・ナビゲーション
-========================= */
-
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  width: 100%;
-  min-height: var(--header-height);
-  background: rgba(255, 255, 255, 0.82);
-  border-bottom: 1px solid rgba(229, 237, 245, 0.7);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-nav {
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-nav::-webkit-scrollbar {
-  display: none;
-}
-
-nav ul {
-  display: flex;
-  min-width: max-content;
-  min-height: var(--header-height);
-  margin: 0;
-  padding: 0 24px;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  list-style: none;
-}
-
-nav a {
-  position: relative;
-  display: inline-block;
-  padding: 8px 0;
-  color: var(--color-text);
-  font-size: 14px;
-  letter-spacing: 2px;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: color 0.3s ease;
-}
-
-nav a::after {
-  position: absolute;
-  right: 0;
-  bottom: 2px;
-  left: 0;
-  height: 1px;
-  background: var(--color-accent);
-  content: "";
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.3s ease;
-}
-
-nav a:hover,
-nav a:focus-visible {
-  color: var(--color-accent);
-}
-
-nav a:hover::after,
-nav a:focus-visible::after {
-  transform: scaleX(1);
-}
-
-/* =========================
-   ヒーロー
-========================= */
-
-.hero {
-  display: flex;
-  min-height: calc(100vh - var(--header-height));
-  padding: 80px 20px;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  background: linear-gradient(to bottom, #fff, var(--color-bg-soft));
-}
-
-.top-logo {
-  width: 200px;
-  height: auto;
-  margin-bottom: 25px;
-  opacity: 0.9;
-}
-
-.logo text {
-  font-family: "Playfair Display", serif;
-  letter-spacing: 10px;
-}
-
-.hero h1 {
-  margin: 0;
-  font-family: "Playfair Display", serif;
-  font-size: clamp(36px, 7vw, 56px);
-  font-weight: 300;
-  letter-spacing: 0.15em;
-}
-
-.hero p {
-  margin: 20px 0 0;
-  color: var(--color-subtext);
-  font-size: 18px;
-  letter-spacing: 2px;
-}
-
-/* =========================
-   共通セクション
-========================= */
-
-section:not(.hero) {
-  padding: 100px 20px;
-  text-align: center;
-}
-
-section:not(.hero) > * {
-  max-width: var(--content-width);
-  margin-right: auto;
-  margin-left: auto;
-}
-
-h2 {
-  margin-top: 0;
-  margin-bottom: 40px;
-  font-size: 28px;
-  font-weight: 300;
-  letter-spacing: 4px;
-}
-
-h2::after {
-  display: block;
-  width: 40px;
-  height: 1px;
-  margin: 16px auto 0;
-  background: var(--color-accent);
-  content: "";
-}
-
-section > p {
-  color: var(--color-subtext);
-}
-
-/* =========================
-   TALENTカテゴリーカード
-========================= */
-
-.card-container {
-  display: grid;
-  max-width: 900px;
-  margin-top: 45px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 32px;
-}
-
-.card {
-  display: flex;
-  min-height: 190px;
-  padding: 35px 20px;
-  color: var(--color-text);
-  background: var(--color-white);
-  border: 1px solid transparent;
-  border-radius: 22px;
-  box-shadow: var(--shadow-card);
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  text-decoration: none;
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
-}
-
-.card:hover,
-.card:focus-visible {
-  border-color: rgba(120, 181, 245, 0.5);
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-8px);
-}
-
-.card h3 {
-  margin: 0 0 10px;
-  font-size: 19px;
-  font-weight: 400;
-  letter-spacing: 1px;
-}
-
-.card p {
-  margin: 0;
-  color: #888;
-  font-size: 14px;
-}
-
-/* =========================
-   NEWS・EVENT
-========================= */
-
-#news-event {
-  max-width: none;
-  background: rgba(238, 246, 255, 0.65);
-}
-
-.news-item {
-  display: flex;
-  max-width: 720px;
-  margin-top: 40px;
-  padding: 20px;
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  align-items: center;
-  gap: 30px;
-  text-align: left;
-}
-
-.news-item time {
-  flex-shrink: 0;
-  color: var(--color-accent);
-  font-size: 14px;
-  letter-spacing: 1px;
-}
-
-.news-item p {
-  margin: 0;
-  color: var(--color-text);
-}
-
-/* =========================
-   CONTACT
-========================= */
-
-#contact a {
-  display: inline-block;
-  margin-top: 25px;
   border-radius: 6px;
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
-}
-
-#contact a:hover,
-#contact a:focus-visible {
-  opacity: 0.8;
-  transform: translateY(-3px);
-}
-
-/* =========================
-   タレント一覧ページ
-========================= */
-
-.talent-grid {
-  display: grid;
-  width: 100%;
-  max-width: var(--content-width);
-  margin: 0 auto;
-  padding: 40px 20px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 40px;
-}
-
-.talent-card {
-  overflow: hidden;
-  color: var(--color-text);
-  background: var(--color-white);
-  border-radius: 20px;
-  box-shadow: var(--shadow-card);
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 600;
   text-decoration: none;
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
 }
 
-.talent-card:hover,
-.talent-card:focus-visible {
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-8px);
+.x-link svg {
+  width: 17px;
+  height: 17px;
 }
 
-.talent-card img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-}
-
-.talent-info {
-  padding: 18px;
-  text-align: center;
-}
-
-.talent-info h3 {
-  margin: 5px 0;
-  font-weight: 400;
-  letter-spacing: 1px;
-}
-
-.talent-info p {
-  margin: 5px 0 0;
-  color: #888;
-  font-size: 13px;
-}
-
-/* =========================
-   フェードアニメーション
-========================= */
-
-.fade {
+/* JavaScriptが有効な場合だけ非表示からアニメーションを始めます。 */
+.js-enabled .reveal {
   opacity: 0;
   transform: translateY(40px);
-  transition:
-    opacity 0.9s ease,
-    transform 0.9s ease;
+  transition: opacity 0.9s ease, transform 0.9s ease;
 }
 
-.fade.show {
+.js-enabled .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* =========================
-   フッター
-========================= */
-
 footer {
   padding: 40px 20px;
   color: #999;
-  background: var(--color-white);
-  border-top: 1px solid var(--color-border);
+  background: var(--white);
+  border-top: 1px solid var(--border);
   font-size: 12px;
   letter-spacing: 1px;
   text-align: center;
@@ -401,18 +38,10 @@ footer p {
   margin: 0;
 }
 
-/* =========================
-   キーボード操作
-========================= */
-
 a:focus-visible {
   outline: 3px solid rgba(120, 181, 245, 0.45);
   outline-offset: 4px;
 }
-
-/* =========================
-   タブレット
-========================= */
 
 @media (max-width: 768px) {
   :root {
@@ -440,16 +69,11 @@ a:focus-visible {
     max-width: 55vw;
   }
 
-  .logo svg {
-    width: 250px;
-  }
-
   .hero p {
     font-size: 16px;
-    letter-spacing: 1.5px;
   }
 
-  section:not(.hero) {
+  .content-section {
     padding: 80px 20px;
   }
 
@@ -459,24 +83,9 @@ a:focus-visible {
   }
 
   .card {
-    width: 100%;
     min-height: 150px;
   }
-
-  .talent-grid {
-    padding: 30px 20px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
-  }
-
-  .talent-card img {
-    height: 210px;
-  }
 }
-
-/* =========================
-   スマートフォン
-========================= */
 
 @media (max-width: 480px) {
   nav ul {
@@ -494,19 +103,7 @@ a:focus-visible {
     flex-direction: column;
     gap: 5px;
   }
-
-  .talent-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .talent-card img {
-    height: 260px;
-  }
 }
-
-/* =========================
-   アニメーションを減らす設定
-========================= */
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -518,10 +115,9 @@ a:focus-visible {
   *::after {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
   }
 
-  .fade {
+  .js-enabled .reveal {
     opacity: 1;
     transform: none;
   }
