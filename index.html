@@ -1,12 +1,61 @@
+    <!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Relierは歌に特化した配信事務所です。歌に本気で取り組む配信者を募集しています。"
+  >
+
+  <title>Relier｜歌に特化した配信事務所</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <nav aria-label="メインナビゲーション">
+      <ul>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#talent">TALENT</a></li>
+        <li><a href="#news-event">NEWS・EVENT</a></li>
+        <li><a href="#audition">AUDITION</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- メインビジュアル -->
+    <section class="hero" aria-labelledby="site-title">
+      <span class="hero-mark" aria-hidden="true">R</span>
+
       <h1 id="site-title">Relier</h1>
+
+      <span class="hero-label">
+        LIVE STREAMING AGENCY
+      </span>
+
       <p>歌で繋がる、想いを届ける。</p>
     </section>
 
+    <!-- ABOUT -->
     <section id="about" class="content-section reveal">
       <h2>ABOUT</h2>
       <p>Relierは、歌に特化した配信事務所です。</p>
     </section>
 
+    <!-- TALENT -->
     <section id="talent" class="content-section reveal">
       <h2>TALENT</h2>
 
@@ -28,9 +77,13 @@
       </div>
     </section>
 
+    <!-- NEWS・EVENT -->
     <section id="news-event" class="content-section reveal">
       <h2>NEWS・EVENT</h2>
-      <p>新しく加入したメンバーやイベント予定をお知らせします。</p>
+
+      <p>
+        新しく加入したメンバーやイベント予定をお知らせします。
+      </p>
 
       <article class="news-item">
         <time datetime="2026-07-02">2026.07.02</time>
@@ -38,16 +91,22 @@
       </article>
     </section>
 
+    <!-- AUDITION -->
     <section id="audition" class="content-section reveal">
       <h2>AUDITION</h2>
       <p>歌に本気で取り組む配信者を募集しています。</p>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact" class="content-section reveal">
       <h2>CONTACT</h2>
-      <p>お問い合わせは、公式LINEからお願いいたします。</p>
+
+      <p>
+        お問い合わせは、公式LINEからお願いいたします。
+      </p>
 
       <div class="social-links">
+        <!-- 公式LINE -->
         <a
           href="https://lin.ee/JazUjHW"
           target="_blank"
@@ -63,6 +122,7 @@
           >
         </a>
 
+        <!-- 公式X -->
         <a
           href="https://x.com/relier_7?s=11"
           target="_blank"
@@ -70,12 +130,22 @@
           class="x-link"
           aria-label="Relier公式Xを新しいタブで開く"
         >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
             <path
               fill="currentColor"
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817-5.967 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"
+              d="M18.244 2.25h3.308l-7.227 8.26
+                 8.502 11.24H16.17l-5.214-6.817
+                 -5.967 6.817H1.68l7.73-8.835
+                 L1.254 2.25H8.08l4.713 6.231
+                 5.45-6.231Zm-1.161 17.52h1.833
+                 L7.084 4.126H5.117L17.083 19.77Z"
             ></path>
           </svg>
+
           <span>公式X</span>
         </a>
       </div>
@@ -83,10 +153,16 @@
   </main>
 
   <footer>
-    <p><small>&copy; 2026 Relier.</small></p>
+    <p>
+      <small>&copy; 2026 Relier.</small>
+    </p>
   </footer>
 
   <script>
+    /*
+     * JavaScriptが有効な場合だけ、
+     * CSSのフェードアニメーションを有効にします。
+     */
     document.documentElement.classList.add("js-enabled");
 
     const revealElements = document.querySelectorAll(".reveal");
@@ -101,14 +177,23 @@
             }
           });
         },
-        { threshold: 0.12 }
+        {
+          threshold: 0.12
+        }
       );
 
-      revealElements.forEach((element) => observer.observe(element));
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
     } else {
-      revealElements.forEach((element) => element.classList.add("is-visible"));
+      /*
+       * 古いブラウザではアニメーションを使わず、
+       * 最初からすべて表示します。
+       */
+      revealElements.forEach((element) => {
+        element.classList.add("is-visible");
+      });
     }
   </script>
 </body>
 </html>
-
