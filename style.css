@@ -5,9 +5,9 @@
 :root {
   --background: #f8fbff;
   --background-soft: #eef6ff;
-  --white: #fff;
-  --text: #444;
-  --subtext: #777;
+  --white: #ffffff;
+  --text: #444444;
+  --subtext: #777777;
   --accent: #78b5f5;
   --border: #e3edf7;
 
@@ -34,13 +34,16 @@ html {
 body {
   margin: 0;
   padding-top: var(--header-height);
+
   color: var(--text);
   background: var(--background);
+
   font-family:
     "Yu Gothic",
     "Hiragino Kaku Gothic ProN",
     Meiryo,
     sans-serif;
+
   line-height: 1.8;
 }
 
@@ -73,6 +76,7 @@ section[id] {
   min-height: var(--header-height);
 
   background: rgba(255, 255, 255, 0.85);
+
   border-bottom:
     1px solid rgba(227, 237, 247, 0.8);
 
@@ -107,6 +111,7 @@ nav ul {
 
   align-items: center;
   justify-content: center;
+
   gap: 40px;
 
   list-style: none;
@@ -119,8 +124,10 @@ nav a {
   padding: 8px 0;
 
   color: var(--text);
+
   font-size: 14px;
   letter-spacing: 2px;
+
   text-decoration: none;
   white-space: nowrap;
 
@@ -196,6 +203,7 @@ nav a:focus-visible::after {
     1px solid rgba(120, 181, 245, 0.18);
 
   border-radius: 50%;
+
   content: "";
 }
 
@@ -209,35 +217,22 @@ nav a:focus-visible::after {
   left: -120px;
 }
 
-/* Rマーク */
+/* ロゴ画像 */
 
-.hero-mark {
+.top-logo {
   position: relative;
   z-index: 1;
 
-  display: grid;
-
-  width: 58px;
-  height: 58px;
+  width: 200px;
+  max-width: 60vw;
+  height: auto;
 
   margin-bottom: 24px;
 
-  color: var(--accent);
-  border:
-    1px solid rgba(120, 181, 245, 0.6);
-
-  border-radius: 50%;
-
-  place-items: center;
-
-  font-family:
-    "Playfair Display",
-    serif;
-
-  font-size: 25px;
+  object-fit: contain;
 }
 
-/* Relier */
+/* Relierの文字 */
 
 .hero h1 {
   position: relative;
@@ -265,6 +260,7 @@ nav a:focus-visible::after {
   margin-top: 8px;
 
   color: #91a1b1;
+
   font-size: 10px;
   letter-spacing: 0.32em;
 }
@@ -278,6 +274,7 @@ nav a:focus-visible::after {
   margin: 20px 0 0;
 
   color: var(--subtext);
+
   font-size: 18px;
   letter-spacing: 2px;
 }
@@ -293,6 +290,7 @@ nav a:focus-visible::after {
 
 .content-section > * {
   max-width: var(--content-width);
+
   margin-right: auto;
   margin-left: auto;
 }
@@ -328,7 +326,7 @@ h2::after {
 }
 
 /* =========================
-   TALENTカード
+   TALENTカテゴリー
 ========================= */
 
 .card-container {
@@ -390,7 +388,7 @@ h2::after {
 .card p {
   margin: 0;
 
-  color: #888;
+  color: #888888;
   font-size: 14px;
 }
 
@@ -425,6 +423,7 @@ h2::after {
   flex-shrink: 0;
 
   color: var(--accent);
+
   font-size: 14px;
   letter-spacing: 1px;
 }
@@ -444,6 +443,7 @@ h2::after {
 
   align-items: center;
   flex-direction: column;
+
   gap: 18px;
 }
 
@@ -459,7 +459,7 @@ h2::after {
   transform: translateY(-3px);
 }
 
-/* LINE */
+/* LINEボタン */
 
 .line-link {
   display: inline-block;
@@ -470,7 +470,7 @@ h2::after {
   display: block;
 }
 
-/* X */
+/* Xボタン */
 
 .x-link {
   display: inline-flex;
@@ -481,22 +481,25 @@ h2::after {
   padding: 8px 16px;
 
   color: var(--white);
-  background: #000;
+  background: #000000;
 
   border-radius: 6px;
 
   align-items: center;
   justify-content: center;
+
   gap: 9px;
 
   font-size: 14px;
   font-weight: 600;
+
   text-decoration: none;
 }
 
 .x-link svg {
   width: 17px;
   height: 17px;
+
   flex-shrink: 0;
 }
 
@@ -505,12 +508,13 @@ h2::after {
 ========================= */
 
 /*
- * JavaScriptが正常に動いている場合だけ
- * 最初に非表示にします。
- */
+JavaScriptが正常に動いている場合だけ
+最初に非表示にします。
+*/
 
 .js-enabled .reveal {
   opacity: 0;
+
   transform: translateY(40px);
 
   transition:
@@ -530,13 +534,14 @@ h2::after {
 footer {
   padding: 40px 20px;
 
-  color: #999;
+  color: #999999;
   background: var(--white);
 
   border-top: 1px solid var(--border);
 
   font-size: 12px;
   letter-spacing: 1px;
+
   text-align: center;
 }
 
@@ -583,6 +588,13 @@ a:focus-visible {
     padding: 70px 20px;
   }
 
+  .top-logo {
+    width: 160px;
+    max-width: 50vw;
+
+    margin-bottom: 20px;
+  }
+
   .hero p {
     font-size: 16px;
   }
@@ -625,6 +637,7 @@ a:focus-visible {
 
     align-items: flex-start;
     flex-direction: column;
+
     gap: 5px;
   }
 }
