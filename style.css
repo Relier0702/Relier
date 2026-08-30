@@ -1,7 +1,494 @@
+ /* =========================
+   基本設定
+========================= */
+
+:root {
+  --background: #f8fbff;
+  --background-soft: #eef6ff;
+  --white: #fff;
+  --text: #444;
+  --subtext: #777;
+  --accent: #78b5f5;
+  --border: #e3edf7;
+
+  --header-height: 70px;
+  --content-width: 1100px;
+
+  --card-shadow:
+    0 10px 30px rgba(40, 80, 120, 0.08);
+
+  --hover-shadow:
+    0 18px 45px rgba(40, 80, 120, 0.14);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding-top: var(--header-height);
+  color: var(--text);
+  background: var(--background);
+  font-family:
+    "Yu Gothic",
+    "Hiragino Kaku Gothic ProN",
+    Meiryo,
+    sans-serif;
+  line-height: 1.8;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+section[id] {
+  scroll-margin-top:
+    calc(var(--header-height) + 20px);
+}
+
+/* =========================
+   ヘッダー
+========================= */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  width: 100%;
+  min-height: var(--header-height);
+
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom:
+    1px solid rgba(227, 237, 247, 0.8);
+
+  box-shadow:
+    0 2px 20px rgba(0, 0, 0, 0.03);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* =========================
+   ナビゲーション
+========================= */
+
+nav {
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+nav::-webkit-scrollbar {
+  display: none;
+}
+
+nav ul {
+  display: flex;
+
+  min-width: max-content;
+  min-height: var(--header-height);
+
+  margin: 0;
+  padding: 0 24px;
+
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+
+  list-style: none;
+}
+
+nav a {
+  position: relative;
+  display: inline-block;
+
+  padding: 8px 0;
+
+  color: var(--text);
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: 2px;
+  left: 0;
+
+  height: 1px;
+
+  background: var(--accent);
+  content: "";
+
+  transform: scaleX(0);
+  transform-origin: center;
+
+  transition: transform 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  color: var(--accent);
+}
+
+nav a:hover::after,
+nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* =========================
+   メインビジュアル
+========================= */
+
+.hero {
+  position: relative;
+
+  display: flex;
+  overflow: hidden;
+
+  min-height:
+    calc(100vh - var(--header-height));
+
+  padding: 80px 20px;
+
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      to bottom,
+      var(--white),
+      var(--background-soft)
+    );
+}
+
+/* 背景の円 */
+
+.hero::before,
+.hero::after {
+  position: absolute;
+
+  width: 360px;
+  height: 360px;
+
+  border:
+    1px solid rgba(120, 181, 245, 0.18);
+
+  border-radius: 50%;
+  content: "";
+}
+
+.hero::before {
+  top: -220px;
+  right: -100px;
+}
+
+.hero::after {
+  bottom: -250px;
+  left: -120px;
+}
+
+/* Rマーク */
+
+.hero-mark {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+
+  width: 58px;
+  height: 58px;
+
+  margin-bottom: 24px;
+
+  color: var(--accent);
+  border:
+    1px solid rgba(120, 181, 245, 0.6);
+
+  border-radius: 50%;
+
+  place-items: center;
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size: 25px;
+}
+
+/* Relier */
+
+.hero h1 {
+  position: relative;
+  z-index: 1;
+
+  margin: 0;
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size:
+    clamp(44px, 8vw, 64px);
+
+  font-weight: 300;
+  letter-spacing: 0.16em;
+}
+
+/* 英語の小さい文字 */
+
+.hero-label {
+  position: relative;
+  z-index: 1;
+
+  margin-top: 8px;
+
+  color: #91a1b1;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+}
+
+/* キャッチコピー */
+
+.hero p {
+  position: relative;
+  z-index: 1;
+
+  margin: 20px 0 0;
+
+  color: var(--subtext);
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+/* =========================
+   共通セクション
+========================= */
+
+.content-section {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.content-section > * {
+  max-width: var(--content-width);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 40px;
+
+  font-family:
+    "Playfair Display",
+    "Yu Gothic",
+    sans-serif;
+
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 4px;
+}
+
+h2::after {
+  display: block;
+
+  width: 40px;
+  height: 1px;
+
+  margin: 16px auto 0;
+
+  background: var(--accent);
+  content: "";
+}
+
+.content-section > p {
+  color: var(--subtext);
+}
+
+/* =========================
+   TALENTカード
+========================= */
+
+.card-container {
+  display: grid;
+
+  max-width: 900px;
+  margin-top: 45px;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 32px;
+}
+
+.card {
+  display: flex;
+
+  min-height: 190px;
+  padding: 35px 20px;
+
+  color: var(--text);
+  background: var(--white);
+
+  border: 1px solid transparent;
+  border-radius: 22px;
+
+  box-shadow: var(--card-shadow);
+
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.card:hover,
+.card:focus-visible {
+  border-color:
+    rgba(120, 181, 245, 0.5);
+
+  box-shadow: var(--hover-shadow);
+
+  transform: translateY(-8px);
+}
+
+.card h3 {
+  margin: 0 0 10px;
+
+  font-size: 19px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.card p {
+  margin: 0;
+
+  color: #888;
+  font-size: 14px;
+}
+
+/* =========================
+   NEWS・EVENT
+========================= */
+
+#news-event {
+  background:
+    rgba(238, 246, 255, 0.7);
+}
+
+.news-item {
+  display: flex;
+
+  max-width: 720px;
+  margin-top: 40px;
+  padding: 20px;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  align-items: center;
+  gap: 30px;
+
+  text-align: left;
+}
+
+.news-item time {
+  flex-shrink: 0;
+
+  color: var(--accent);
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.news-item p {
+  margin: 0;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.social-links {
+  display: flex;
+
+  margin-top: 28px;
+
+  align-items: center;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.social-links a {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.social-links a:hover,
+.social-links a:focus-visible {
+  opacity: 0.8;
+  transform: translateY(-3px);
+}
+
+/* LINE */
+
+.line-link {
+  display: inline-block;
   border-radius: 6px;
+}
+
+.line-link img {
+  display: block;
+}
+
+/* X */
+
+.x-link {
+  display: inline-flex;
+
+  min-width: 116px;
+  min-height: 40px;
+
+  padding: 8px 16px;
+
+  color: var(--white);
+  background: #000;
+
+  border-radius: 6px;
+
   align-items: center;
   justify-content: center;
   gap: 9px;
+
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
@@ -10,13 +497,25 @@
 .x-link svg {
   width: 17px;
   height: 17px;
+  flex-shrink: 0;
 }
 
-/* JavaScriptが有効な場合だけ非表示からアニメーションを始めます。 */
+/* =========================
+   フェードアニメーション
+========================= */
+
+/*
+ * JavaScriptが正常に動いている場合だけ
+ * 最初に非表示にします。
+ */
+
 .js-enabled .reveal {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
+
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
 }
 
 .js-enabled .reveal.is-visible {
@@ -24,11 +523,18 @@
   transform: translateY(0);
 }
 
+/* =========================
+   フッター
+========================= */
+
 footer {
   padding: 40px 20px;
+
   color: #999;
   background: var(--white);
+
   border-top: 1px solid var(--border);
+
   font-size: 12px;
   letter-spacing: 1px;
   text-align: center;
@@ -38,10 +544,20 @@ footer p {
   margin: 0;
 }
 
+/* =========================
+   キーボード操作
+========================= */
+
 a:focus-visible {
-  outline: 3px solid rgba(120, 181, 245, 0.45);
+  outline:
+    3px solid rgba(120, 181, 245, 0.45);
+
   outline-offset: 4px;
 }
+
+/* =========================
+   タブレット・スマートフォン
+========================= */
 
 @media (max-width: 768px) {
   :root {
@@ -50,6 +566,7 @@ a:focus-visible {
 
   nav ul {
     padding: 0 18px;
+
     justify-content: flex-start;
     gap: 26px;
   }
@@ -60,13 +577,10 @@ a:focus-visible {
   }
 
   .hero {
-    min-height: calc(85vh - var(--header-height));
-    padding: 70px 20px;
-  }
+    min-height:
+      calc(85vh - var(--header-height));
 
-  .top-logo {
-    width: 180px;
-    max-width: 55vw;
+    padding: 70px 20px;
   }
 
   .hero p {
@@ -87,6 +601,10 @@ a:focus-visible {
   }
 }
 
+/* =========================
+   小さいスマートフォン
+========================= */
+
 @media (max-width: 480px) {
   nav ul {
     gap: 20px;
@@ -97,13 +615,23 @@ a:focus-visible {
     letter-spacing: 3px;
   }
 
+  .hero-label {
+    font-size: 9px;
+    letter-spacing: 0.24em;
+  }
+
   .news-item {
     padding: 18px;
+
     align-items: flex-start;
     flex-direction: column;
     gap: 5px;
   }
 }
+
+/* =========================
+   アニメーションを減らす設定
+========================= */
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -113,8 +641,14 @@ a:focus-visible {
   *,
   *::before,
   *::after {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
+    transition-duration:
+      0.01ms !important;
+
+    animation-duration:
+      0.01ms !important;
+
+    animation-iteration-count:
+      1 !important;
   }
 
   .js-enabled .reveal {
