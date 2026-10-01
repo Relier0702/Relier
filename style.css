@@ -683,3 +683,38 @@ a:focus-visible {
   object-fit: cover !important;
   object-position: center top !important;
 }
+/* 所属タレントを横並びにする */
+.talent-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.talent-card {
+  min-width: 0;
+  padding: 24px;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  text-align: center;
+}
+
+.talent-info h3 {
+  margin: 20px 0 8px;
+}
+
+.talent-info p {
+  margin: 8px 0;
+}
+
+/* 小さい画面では1列 */
+@media (max-width: 600px) {
+  .talent-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
