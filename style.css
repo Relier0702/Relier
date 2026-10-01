@@ -669,3 +669,10 @@ a:focus-visible {
     transform: none;
   }
 }
+.talent-grid img {
+  display: block;
+  width: 250px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  object-fit: cover;
+}
