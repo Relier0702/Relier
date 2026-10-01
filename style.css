@@ -669,10 +669,17 @@ a:focus-visible {
     transform: none;
   }
 }
-.talent-grid img {
-  display: block;
-  width: 250px;
-  aspect-ratio: 1 / 1;
-  margin: 0 auto;
-  object-fit: cover;
+/* タレント画像を正方形に統一 */
+
+.talent-card img {
+  display: block !important;
+
+  width: 250px !important;
+  height: 250px !important;
+  max-width: 100% !important;
+
+  margin: 0 auto !important;
+
+  object-fit: cover !important;
+  object-position: center top !important;
 }
