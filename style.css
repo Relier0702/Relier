@@ -717,4 +717,57 @@ a:focus-visible {
     grid-template-columns: 1fr;
   }
 }
+/* プロフィールカードの無駄な余白をなくす */
+
+.talent-card {
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 20px !important;
+
+  justify-content: flex-start !important;
+}
+
+/* プロフィール全体 */
+
+.talent-info {
+  padding: 16px 8px 5px !important;
+  text-align: center;
+}
+
+/* 見出しと文章の標準余白を削除 */
+
+.talent-info h3,
+.talent-info p {
+  margin: 0 !important;
+}
+
+/* 名前 */
+
+.talent-info h3 {
+  margin-bottom: 12px !important;
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+/* PROFILE */
+
+.talent-info .profile-title {
+  margin-bottom: 12px !important;
+
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+
+/* プロフィール項目 */
+
+.profile-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.profile-list p {
+  margin: 0 !important;
+  line-height: 1.65;
+}
 
